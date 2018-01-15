@@ -93,7 +93,7 @@ https://machinebox.io/
 		End:   video.MillisecondsComplete,
 	})
 	ffmpegargs := []string{
-		"-i", inFile,
+		"-y", "-i", inFile,
 	}
 	listFileName := filepath.Join(tmpdir, "segments.txt")
 	lf, err := os.Create(listFileName)
@@ -126,7 +126,7 @@ https://machinebox.io/
 	}
 	fmt.Println("stitching segments into", output+"...")
 	ffmpegargs = []string{
-		"-f", "concat", "-safe", "0", "-i", listFileName, "-c", "copy", output,
+		"-y", "-f", "concat", "-safe", "0", "-i", listFileName, "-c", "copy", output,
 	}
 	out, err = exec.Command("ffmpeg", ffmpegargs...).CombinedOutput()
 	if err != nil {
