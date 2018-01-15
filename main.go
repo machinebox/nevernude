@@ -77,12 +77,13 @@ https://machinebox.io/
 	}
 	fmt.Println("processing...")
 	var keepranges []rangeMS
+	offsetMS := 500 // buffer around the nudity
 	s := 0
 	for _, nudity := range results.Nudebox.Nudity {
 		for _, instance := range nudity.Instances {
 			r := rangeMS{
-				Start: s,
-				End:   instance.StartMS,
+				Start: s - offsetMS,
+				End:   instance.StartMS + offsetMS,
 			}
 			s = instance.EndMS
 			keepranges = append(keepranges, r)
