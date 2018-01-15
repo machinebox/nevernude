@@ -48,9 +48,9 @@ https://machinebox.io/
 	if err := os.MkdirAll(tmpdir, 0777); err != nil {
 		return errors.Wrap(err, "make temp directory")
 	}
-	defer func() {
-		os.RemoveAll(localtmp)
-	}()
+	// defer func() {
+	// 	os.RemoveAll(localtmp)
+	// }()
 	f, err := os.Open(inFile)
 	if err != nil {
 		return errors.New("open video")
@@ -103,15 +103,15 @@ https://machinebox.io/
 	defer lf.Close()
 	for i, r := range keepranges {
 		start := strconv.Itoa(r.Start / 1000)
-		end := strconv.Itoa(r.End / 1000)
-		segmentFile := fmt.Sprintf("%04d_%s-%s%s", i, start, end, ext)
+		duration := strconv.Itoa((r.End - r.Start) / 1000)
+		segmentFile := fmt.Sprintf("%04d_%s-%s%s", i, start, start+duration, ext)
 		segment := filepath.Join(tmpdir, segmentFile)
 		if _, err := io.WriteString(lf, "file '"+segmentFile+"'\n"); err != nil {
 			return errors.Wrap(err, "writing to list file")
 		}
 		ffmpegargs = append(ffmpegargs, []string{
 			"-ss", start,
-			"-t", end,
+			"-t", duration,
 			segment,
 		}...)
 	}
