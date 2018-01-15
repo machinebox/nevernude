@@ -2,6 +2,11 @@
 
 Tool for trimming nudity out of videos.
 
+## How it works
+
+Nevernude processes a video with [Videobox](https://machinebox.io/docs/videobox) and [Nudebox](https://machinebox.io/docs/nudebox)
+and uses `ffmpeg` to break the video into segments, before stiching the non-nude bits back together into a new video.
+
 ## Usage
 
 Use `docker-compose` to spin up Videobox and Nudebox. This will start two Docker containers, and connect them together.
