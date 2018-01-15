@@ -174,5 +174,8 @@ func waitForVideoboxResults(vb *videobox.Client, id string) (*videobox.VideoAnal
 	if err != nil {
 		return nil, video, errors.Wrap(err, "get results")
 	}
+	if err := vb.Delete(id); err != nil {
+		log.Println("videobox: failed to delete results (continuing regardless):", err)
+	}
 	return results, video, nil
 }
