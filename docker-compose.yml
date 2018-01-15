@@ -4,7 +4,6 @@ services:
     image: machinebox/nudebox
     environment:
       - MB_KEY=${MB_KEY}
-      - MB_WORKERS=1
     ports:
       - "8081:8080"
   videobox:
