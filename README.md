@@ -4,6 +4,10 @@
 
 Tool for trimming nudity out of videos.
 
+## Read the blog post
+
+Check out the [blog post introducing this project](https://blog.machinebox.io/automatically-cut-out-nudity-from-videos-using-machine-box-ffmpeg-daa8578de8b5)
+
 ## How it works
 
 Nevernude processes a video with [Videobox](https://machinebox.io/docs/videobox) and [Nudebox](https://machinebox.io/docs/nudebox)
