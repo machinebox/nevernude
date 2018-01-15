@@ -30,7 +30,7 @@ https://machinebox.io/
 @machineboxio
 `)
 	var (
-		threshold    = flag.Float64("threshold", 0.5, "nudebox threshold (lower is more strict)")
+		threshold    = flag.Float64("threshold", 0.4, "nudebox threshold (lower is more strict)")
 		videoboxAddr = flag.String("videobox", "http://localhost:8080", "Videobox address")
 		outFile      = flag.String("out", "", "output file (default will save file next to original)")
 		skipFrames   = flag.Int("skipframes", -1, "number of frames to skip between extractions (see Videobox docs)")
@@ -48,9 +48,9 @@ https://machinebox.io/
 	if err := os.MkdirAll(tmpdir, 0777); err != nil {
 		return errors.Wrap(err, "make temp directory")
 	}
-	// defer func() {
-	// 	os.RemoveAll(localtmp)
-	// }()
+	defer func() {
+		os.RemoveAll(localtmp)
+	}()
 	f, err := os.Open(inFile)
 	if err != nil {
 		return errors.New("open video")
