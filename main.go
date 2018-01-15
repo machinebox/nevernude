@@ -95,7 +95,7 @@ https://machinebox.io/
 	ffmpegargs := []string{
 		"-i", inFile,
 	}
-	listFileName := filepath.Join(tmpdir, "videos.txt")
+	listFileName := filepath.Join(tmpdir, "segments.txt")
 	lf, err := os.Create(listFileName)
 	if err != nil {
 		return errors.Wrap(err, "create list file")
