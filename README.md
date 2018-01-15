@@ -1,5 +1,7 @@
 # nevernude
 
+![Nevernude shorts from Arrested Development](nevernude-shorts.png)
+
 Tool for trimming nudity out of videos.
 
 ## How it works
@@ -54,3 +56,7 @@ The following flags let you control `nevernude` run `nevernude --help`:
 ## Prerequisites 
 
 * `ffmpeg` - You will need to [install ffmpeg](https://www.ffmpeg.org/download.html) 
+
+# Finally
+
+If you like Arrested Development, you can [buy the Nevernude mug](https://www.popsugar.com/entertainment/photo-gallery/42731657/image/42732389/Never-Nude-Mug-16).
